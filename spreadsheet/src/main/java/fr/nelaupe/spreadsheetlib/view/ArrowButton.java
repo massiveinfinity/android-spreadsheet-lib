@@ -68,7 +68,7 @@ public class ArrowButton extends Button {
         typedArray.recycle();
     }
 
-    private void setIconPadding(int padding) {
+    public void setIconPadding(int padding) {
         iconPadding = padding;
         requestLayout();
     }
