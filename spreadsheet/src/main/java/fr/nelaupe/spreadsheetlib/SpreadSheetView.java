@@ -178,7 +178,7 @@ public class SpreadSheetView extends LinearLayout implements View.OnClickListene
                 }
 
             } else {
-                mIsDESC = mColumnSortSelected != columnPosition || !mIsDESC;
+                mIsDESC = !(mColumnSortSelected != columnPosition || mIsDESC);
                 putArrow(columnPosition);
                 mAdaptor.onSort(annotationFields, mIsDESC);
             }
@@ -351,9 +351,9 @@ public class SpreadSheetView extends LinearLayout implements View.OnClickListene
             if (column == (int) childAt.getTag(R.id.filter_column_position)) {
                 mColumnSortSelected = column;
                 if (mIsDESC) {
-                    childAt.setState(ArrowButton.states.UP);
-                } else {
                     childAt.setState(ArrowButton.states.DOWN);
+                } else {
+                    childAt.setState(ArrowButton.states.UP);
                 }
             } else {
                 childAt.setState(ArrowButton.states.NONE);
